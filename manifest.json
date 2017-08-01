@@ -1,0 +1,10 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "Renders an isometric pixel view of GitHub contribution graphs.",
+  "content_scripts": [ {
+    "js": [ "index.bundle.js" ],
+    "matches": [ "https://github.com/*" ]
+  }],
+  "manifest_version": 2
+}

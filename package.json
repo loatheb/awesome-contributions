@@ -1,0 +1,23 @@
+{
+  "name": "awesome-contributions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack index.js index.bundle.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loatheb/awesome-contributions.git"
+  },
+  "keywords": [],
+  "author": "loatheb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loatheb/awesome-contributions/issues"
+  },
+  "homepage": "https://github.com/loatheb/awesome-contributions#readme",
+  "devDependencies": {
+    "webpack": "^3.4.1"
+  }
+}
