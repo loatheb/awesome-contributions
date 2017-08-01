@@ -1,7 +1,11 @@
-import { getParentElement, isNativeHTMLElement } from './utils'
+import { getParentElement, isNativeHTMLElement, $ } from './utils'
 
-const $ = document.querySelector.bind(document)
-const $$ = document.querySelector.bind(document)
+class ContributionMap {
+  constructor() {
+    const target = $('.js-contribution-graph')
+    const parent = getParentElement(target)
+    console.log(parent)
+  }
+}
 
-console.log(getParentElement($('.js-contribution-graph')))
-
+new ContributionMap()

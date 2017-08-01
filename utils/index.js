@@ -5,3 +5,5 @@ const getParentElementHelper = recursionHelper(node => node.parentElement)
 
 export const getParentElement = nodes => getParentElementHelper(nodes)
 export const isNativeHTMLElement = nodes => isNativeHTMLElementHelper(nodes)
+
+export { $, $$ } from './selector'
