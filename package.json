@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/loatheb/awesome-contributions#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
     "eslint": "^4.3.0",
     "webpack": "^3.4.1"
   }
