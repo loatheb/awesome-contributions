@@ -23,5 +23,8 @@
     "babel-preset-env": "^1.6.0",
     "eslint": "^4.3.0",
     "webpack": "^3.4.1"
+  },
+  "dependencies": {
+    "echarts": "^3.6.2"
   }
 }

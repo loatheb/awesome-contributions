@@ -1028,6 +1028,12 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
+echarts@^3.6.2:
+  version "3.6.2"
+  resolved "http://registry.npm.taobao.org/echarts/download/echarts-3.6.2.tgz#862954c8b5810bff87a48b0de0416ed8c4bb1c36"
+  dependencies:
+    zrender "^3.5.2"
+
 electron-to-chromium@^1.3.16:
   version "1.3.17"
   resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.17.tgz#41c13457cc7166c5c15e767ae61d86a8cacdee5d"
@@ -2952,3 +2958,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zrender@^3.5.2:
+  version "3.5.2"
+  resolved "http://registry.npm.taobao.org/zrender/download/zrender-3.5.2.tgz#e770cbe978b5f4981c1b93d9b84147a3474f21d2"

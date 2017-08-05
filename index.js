@@ -1,4 +1,8 @@
-import { getParentElement, isNativeHTMLElement, $, $$ } from './utils'
+import echarts from 'echarts'
+
+import { getParentElement, $, $$ } from './utils'
+
+const isDev = false
 
 function generateResult(element) {
   const { attributes } = element
@@ -9,16 +13,60 @@ function generateResult(element) {
   }, Object.create(null))
 }
 
+function generateEchartsOption(data) {
+  return [data['data-date'], +(data['data-count'])]
+}
+
 class ContributionMap {
   constructor() {
-    const target = $('.js-contribution-graph')
-    const parent = getParentElement(target)
-    const contributions = $$('.js-calendar-graph-svg rect')
-    const contributionTree = [...contributions].map(generateResult)
+    if (isDev) {
+      this.initData = require('./data.js')
+      this.myChart = echarts.init($('#main'))
+    } else {
+      const target = $('.js-calendar-graph')
+      const parent = getParentElement(target)
+      parent.style.height = '500px'
+      parent.style.width = '500px'
+      const contributions = $$('.js-calendar-graph-svg rect')
+      this.initData = [...contributions].map(generateResult)
+      this.myChart = echarts.init(parent)
+    }
+  }
+  render () {
+    const data = this.initData.map(generateEchartsOption)
 
-    console.log(contributionTree)
+    const startDate = data[0][0]
+    const endDate = data[data.length - 1][0]
 
+    const option = {
+      visualMap: {
+        show: false,
+      },
+      calendar: {
+        range: [startDate, endDate],
+        cellSize: 15,
+        yearLabel: {
+          show: false,
+        },
+        monthLabel: {
+          show: false,
+        },
+        dayLabel: {
+          show: false,
+        },
+      },
+      tooltip : {
+        trigger: 'item'
+      },
+      series: {
+        type: 'scatter',
+        coordinateSystem: 'calendar',
+        symbolSize: val => val[1] * 2,
+        data,
+      },
+    }
+    this.myChart.setOption(option)
   }
 }
 
-new ContributionMap()
+new ContributionMap().render()
