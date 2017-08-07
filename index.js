@@ -1,8 +1,7 @@
+/* global __DEV__ */
 import echarts from 'echarts'
 
 import { getParentElement, $, $$ } from './utils'
-
-const isDev = false
 
 function generateResult(element) {
   const { attributes } = element
@@ -19,14 +18,14 @@ function generateEchartsOption(data) {
 
 class ContributionMap {
   constructor() {
-    if (isDev) {
+    if (__DEV__) {
       this.initData = require('./data.js')
       this.myChart = echarts.init($('#main'))
     } else {
       const target = $('.js-calendar-graph')
       const parent = getParentElement(target)
       parent.style.height = '500px'
-      parent.style.width = '500px'
+      parent.style.width = '100%'
       const contributions = $$('.js-calendar-graph-svg rect')
       this.initData = [...contributions].map(generateResult)
       this.myChart = echarts.init(parent)
