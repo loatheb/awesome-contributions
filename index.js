@@ -24,7 +24,7 @@ class ContributionMap {
     } else {
       const target = $('.js-calendar-graph')
       const parent = getParentElement(target)
-      parent.style.height = '500px'
+      parent.style.height = '200px'
       parent.style.width = '100%'
       const contributions = $$('.js-calendar-graph-svg rect')
       this.initData = [...contributions].map(generateResult)
@@ -43,6 +43,8 @@ class ContributionMap {
       },
       calendar: {
         range: [startDate, endDate],
+        left: 0,
+        top: 0,
         cellSize: 15,
         yearLabel: {
           show: false,
