@@ -31,7 +31,7 @@ class ContributionMap {
       this.myChart = echarts.init(parent)
     }
   }
-  render () {
+  render() {
     const data = this.initData.map(generateEchartsOption)
 
     const startDate = data[0][0]
@@ -45,7 +45,7 @@ class ContributionMap {
         range: [startDate, endDate],
         left: 0,
         top: 0,
-        cellSize: 15,
+        cellSize: 13,
         yearLabel: {
           show: false,
         },
@@ -54,6 +54,15 @@ class ContributionMap {
         },
         dayLabel: {
           show: false,
+        },
+        splitLine: {
+          show: false,
+        },
+        itemStyle: {
+          normal: {
+            color: '#ebedf0',
+            borderColor: '#fff',
+          },
         },
       },
       tooltip : {
